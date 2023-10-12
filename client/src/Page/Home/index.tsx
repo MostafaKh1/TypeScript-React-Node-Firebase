@@ -4,6 +4,8 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { logEvent } from "firebase/analytics";
 import { TailSpin } from "react-loading-icons";
 import { User } from "firebase/auth";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type userDataProps = {
   userData: User;
@@ -37,6 +39,7 @@ function Home({ userData, setUserData }: userDataProps) {
           console.log("Image uploaded to Firebase Storage");
           setFileImage(null);
           setLoadingImage(false);
+          toast.success("Image uploaded successfully", { autoClose: 2000 });
 
           // Update the imageUrl state with the newly uploaded image URL
           getDownloadURL(storageRef)
@@ -126,6 +129,7 @@ function Home({ userData, setUserData }: userDataProps) {
           </div>
         </div>
       </div>
+      <ToastContainer position="bottom-right" />
     </div>
   );
 }
