@@ -82,7 +82,7 @@ function Home({ userData, setUserData }: userDataProps) {
             onClick={() => setUserData(null)}
             className="bg-gray-300 py-3 px-4 text-2xl rounded-lg"
           >
-            Sing Out
+            Sign Out
           </button>
         </div>
         <div className="flex justify-center p-4 items-center">
